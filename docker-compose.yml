@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8000/weather/01001000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

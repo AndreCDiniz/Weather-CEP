@@ -7,12 +7,18 @@ import (
 	"net/http"
 )
 
+type ViaCEPClientInterface interface {
+	GetLocation(cep string) (*models.ViaCEPResponse, error)
+}
+
 type ViaCEPClient struct {
 	baseURL string
 }
 
-func NewViaCEPClient(baseURL string) *ViaCEPClient {
-	return &ViaCEPClient{baseURL: "https://viacep.com.br/ws"}
+func NewViaCEPClient() ViaCEPClientInterface {
+	return &ViaCEPClient{
+		baseURL: "https://viacep.com.br/ws",
+	}
 }
 
 func (c *ViaCEPClient) GetLocation(cep string) (*models.ViaCEPResponse, error) {

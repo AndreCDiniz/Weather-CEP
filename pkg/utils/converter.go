@@ -10,7 +10,7 @@ func CelsiusToKelvin(celsius float64) float64 {
 	return celsius + 273.15
 }
 
-func isValidCep(cep string) bool {
+func IsValidCep(cep string) bool {
 	match, _ := regexp.MatchString(`^\d{8}$`, cep)
 	return match
 }

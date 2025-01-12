@@ -1,0 +1,12 @@
+# CEP válido
+GET http://localhost:8000/weather/ 14781208
+
+###
+
+# CEP inválido
+GET http://localhost:8000/weather/123
+
+###
+
+# CEP não encontrado
+GET http://localhost:8000/weather/99999999
