@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.23-alpine AS builder
+FROM golang:1.21-alpine AS builder
 
 WORKDIR /app
 
@@ -27,6 +27,9 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /app
 COPY --from=builder /weather-app .
 COPY .env .env
+
+ENV GIN_MODE=release
+ENV PORT=8000
 
 EXPOSE 8000
 CMD ["./weather-app"]

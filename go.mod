@@ -1,6 +1,6 @@
 module github.com/AndreCDiniz/Weather-CEP
 
-go 1.23.3
+go 1.21
 
 require (
 	github.com/gin-gonic/gin v1.10.0
